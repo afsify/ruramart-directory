@@ -2,10 +2,6 @@
 
 Ruramart is a comprehensive e-commerce platform designed to list and manage shops in rural areas. It aims to bridge the gap between rural shops and potential customers by providing an online presence for these shops, showcasing their products, and offering an easy way for customers to find, review, and purchase products. The platform includes features for user registration and management, product listings, reviews, cart management, and order processing.
 
-## Figma Design
-
-[Ruramart Directory](https://www.figma.com/design/4wfCAKoAJAILbrtaqvIl1T/Ruramart?node-id=0-1&t=NQlN96bSPgioJkUh-1)
-
 ## Features
 
 - **User Authentication:** Registration, authentication, and role-based access control for users, sellers, and admins.
@@ -122,6 +118,22 @@ The live project can be accessed at [https://ruramart.vercel.app](https://rurama
     ```
 
     The server will be running on [http://localhost:5000](http://localhost:5000)
+
+## API Documentation
+
+Detailed API documentation can be found in the [Ruramart_API_Documentation.docx](https://docs.google.com/document/d/1Xub1hOzsOH57fbqLDgvqjA53btxdjotfpdEZtRpPnu4/edit?usp=sharing)
+
+## Database Design
+
+The database design can be viewed in [Ruramart_DB_Design.pdf](https://drive.google.com/file/d/1tlXYTMhN0ru3ZNhUiQD4RV83unqs5HEu/view?usp=sharing)
+
+## Figma Prototype Design
+
+The Figma prototype design can be viewed [Ruramart_UI](https://www.figma.com/design/4wfCAKoAJAILbrtaqvIl1T/Ruramart?node-id=0-1&t=NQlN96bSPgioJkUh-1)
+
+## Module List
+
+The list of modules can be found in the [Ruramart_Modules.docx](https://docs.google.com/document/d/1ZOPEifunGgwHVBSV_Tkxmlpm-s6_Z84EoV_lEOCU5MY/edit?usp=sharing)
 
 ## Contributing
 
