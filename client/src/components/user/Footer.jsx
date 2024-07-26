@@ -50,7 +50,7 @@ function Footer() {
         <div className="flex flex-col md:flex-row md:justify-between items-center">
           <div className="flex justify-center md:justify-start w-full mb-4 md:mb-0">
             <Link to={userPath.home}>
-              <h1 className="text-5xl font-signature">Codsify</h1>
+              <h1 className="text-5xl font-signature">Ruramart</h1>
             </Link>
           </div>
           <div className="flex justify-between w-full">
@@ -125,7 +125,7 @@ function Footer() {
         <div className="w-full mt-8 border-t border-gray-600"></div>
         <div className="flex flex-col md:flex-row justify-between items-center mt-4">
           <div className="text-sm mb-4 md:mb-0 md:mr-4">
-            &copy; {new Date().getFullYear()} Codsify DevLearn <br /> All
+            &copy; {new Date().getFullYear()} Ruramart Directory <br /> All
             rights reserved
           </div>
           <motion.div

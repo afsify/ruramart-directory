@@ -65,7 +65,7 @@ const UserLayout = ({ children, showFooter = true }) => {
           <div className="flex w-full container justify-between items-center">
             <div className="h-full">
               <Link to={userPath.home}>
-                <h1 className="text-5xl font-signature ml-2 mt-5">Codsify</h1>
+                <h1 className="text-5xl font-signature ml-2 mt-5">Ruramart</h1>
               </Link>
             </div>
             <div className="items-center hidden md:flex justify-center gap-3">

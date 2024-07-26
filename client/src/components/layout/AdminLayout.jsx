@@ -114,7 +114,7 @@ function AdminLayout({ children }) {
                 !open && "rotate-[360deg] scale-0"
               }`}
             >
-              Codsify
+              Ruramart
             </h1>
           </div>
           <ul>

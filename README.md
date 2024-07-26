@@ -1,15 +1,18 @@
-# Codsify DevLearn
+# Ruramart Directory
 
-Welcome to the Codsify DevLearn project! This platform is designed to a freelancer offers his services, provide courses, and establish connections between developers and users. Prime members enjoy additional benefits such as support group chat, personal support, meeting sessions, and a Prime Badge. The Codsify DevLearn project ensures flawless functionality with a captivating design, delivering a smooth experience across all devices.
+Ruramart is a comprehensive e-commerce platform designed to list and manage shops in rural areas. It aims to bridge the gap between rural shops and potential customers by providing an online presence for these shops, showcasing their products, and offering an easy way for customers to find, review, and purchase products. The platform includes features for user registration and management, product listings, reviews, cart management, and order processing.
+
+## Figma Design
+
+[Ruramart Directory](https://www.figma.com/design/4wfCAKoAJAILbrtaqvIl1T/Ruramart?node-id=0-1&t=NQlN96bSPgioJkUh-1)
 
 ## Features
 
-- **User Authentication:** Securely log in and manage your profile, services, and courses with our robust user authentication system.
-- **Service and Course Offerings:** Freelancers can offer services, provide courses, and users can explore and enroll in them.
-- **Prime Membership:** Prime members enjoy exclusive benefits, including support group chat, personal support, meeting sessions, and a Prime Badge.
-- **Live Chat:** Engage in real-time conversations with other users and freelancers through the live chat feature.
-- **DevHub for Developers:** A dedicated space for developers to showcase their skills, share insights, and collaborate with others.
-- **Library for Purchased Courses:** Access a centralized library to manage and revisit purchased courses conveniently.
+- **User Authentication:** Registration, authentication, and role-based access control for users, sellers, and admins.
+- **Shop and Product Management:** Detailed listings of shops and their products, including descriptions, prices, and availability.
+- **Review System:** Allow users to leave ratings and comments on products.
+- **Live Chat:** Engage in real-time conversations with other users and sellers through the live chat feature.
+- **Order and Cart Management:** Enable users to add products to their cart, place orders, and track order statuses.
 - **Responsive Design:** The platform is designed to provide a seamless experience across various devices.
 - **Modular Architecture:** Embrace a modular architecture that enhances flexibility and scalability for future development.
 
@@ -36,14 +39,14 @@ Welcome to the Codsify DevLearn project! This platform is designed to a freelanc
 
 ## Access the live project
 
-The live project can be accessed at [https://codsify.vercel.app](https://codsify.vercel.app)
+The live project can be accessed at [https://ruramart.vercel.app](https://ruramart.vercel.app)
 
 ## Getting Started
 
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/afsify/codsify-devlearn.git
+   git clone https://github.com/afsify/ruramart-directory.git
    ```
 
 2. **Set up environment variables:**
