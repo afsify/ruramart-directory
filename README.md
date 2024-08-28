@@ -1,4 +1,4 @@
-# Nattumart Directory
+# Ruramart Directory
 
 Ruramart is a comprehensive e-commerce platform designed to list and manage shops in rural areas. It aims to bridge the gap between rural shops and potential customers by providing an online presence for these shops, showcasing their products, and offering an easy way for customers to find, review, and purchase products. The platform includes features for user registration and management, product listings, reviews, cart management, and order processing.
 
