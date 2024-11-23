@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const reviewSchema = new mongoose.Schema(
   {
-    name: {
+    user: {
       type: mongoose.Types.ObjectId,
       ref: "User",
       required: true,
@@ -23,13 +23,13 @@ const reviewSchema = new mongoose.Schema(
       comment: String,
       createdAt: {
         type: Date,
-        default: Date.now(),
+        default: Date.now,
       },
     },
   },
   { timestamps: true }
 );
 
-reviewSchema.index({user:1, product:1},{unique:true})
+reviewSchema.index({ user: 1, product: 1 }, { unique: true });
 
 export const Review = mongoose.model("Review", reviewSchema);

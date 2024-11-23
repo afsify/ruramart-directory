@@ -30,25 +30,37 @@ const vendorSchema = new mongoose.Schema(
       ref: "User",
       required: true,
     },
-    storeName: {
-      type: String,
-      required: true,
-      unique: true,
-    },
-    storeDescription: {
+    shopName: {
       type: String,
       required: true,
     },
-    storeImage: {
+    shopDescription: {
       type: String,
       required: true,
+    },
+    shopImage: {
+      type: String,
+      required: true,
+    },
+    shopAddress: {
+      street: String,
+      city: String,
+      district: String,
+      state: String,
+      country: String,
+      pin: String,
+    },
+    contact: {
+      type: String,
+      required: true,
+    },
+    rating: {
+      type: Number,
+      default: 0,
     },
     isVerified: {
       type: Boolean,
       default: false,
-    },
-    phone: {
-      type: String,
     },
     products: [{ type: mongoose.Types.ObjectId, ref: "Product" }],
     subscription: subscriptionSchema,

@@ -46,7 +46,16 @@ const productSchema = new mongoose.Schema(
       ref: "Brand",
       required: true,
     },
-    image: [String],
+    stock: {
+      type: Number,
+      required: true,
+    },
+    status: {
+      type: String,
+      enum: ["active", "inactive"],
+      default: "active",
+    },
+    images: [String],
     variations: [productVariationSchema],
     ratingAverage: {
       type: Number,

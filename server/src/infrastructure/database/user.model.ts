@@ -28,6 +28,14 @@ const userSchema = new mongoose.Schema(
       country: String,
       pin: String,
     },
+    profileImage: {
+      type: String,
+      default: "",
+    },
+    wallet: {
+      type: Number,
+      default: 0,
+    },
     phone: {
       type: String,
     },
