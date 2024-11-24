@@ -25,7 +25,7 @@ const subscriptionSchema = new mongoose.Schema(
 
 const vendorSchema = new mongoose.Schema(
   {
-    user: {
+    userId: {
       type: mongoose.Types.ObjectId,
       ref: "User",
       required: true,

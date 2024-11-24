@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const orderItemSchema = new mongoose.Schema(
   {
-    product: {
+    productId: {
       type: mongoose.Types.ObjectId,
       ref: "Product",
       required: true,
@@ -34,12 +34,8 @@ const cancellationSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    createdAt: {
-      type: Date,
-      default: Date.now(),
-    },
   },
-  { id: false }
+  { id: false, timestamps: true }
 );
 
 const returnSchema = new mongoose.Schema(
@@ -53,17 +49,13 @@ const returnSchema = new mongoose.Schema(
       enum: ["pending", "approved", "rejected"],
       default: "pending",
     },
-    createdAt: {
-      type: Date,
-      default: Date.now(),
-    },
   },
-  { id: false }
+  { id: false, timestamps: true }
 );
 
 const orderSchema = new mongoose.Schema(
   {
-    user: {
+    userId: {
       type: mongoose.Types.ObjectId,
       ref: "User",
       required: true,
