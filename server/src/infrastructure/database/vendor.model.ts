@@ -1,27 +1,24 @@
 import mongoose from "mongoose";
 
-const subscriptionSchema = new mongoose.Schema(
-  {
-    plan: {
-      type: String,
-      enum: ["basic", "premium"],
-      required: true,
-    },
-    startDate: {
-      type: Date,
-      required: true,
-    },
-    endDate: {
-      type: Date,
-      required: true,
-    },
-    isActive: {
-      type: Boolean,
-      default: true,
-    },
+const subscriptionSchema = new mongoose.Schema({
+  plan: {
+    type: String,
+    enum: ["basic", "premium"],
+    required: true,
   },
-  { _id: false }
-);
+  startDate: {
+    type: Date,
+    required: true,
+  },
+  endDate: {
+    type: Date,
+    required: true,
+  },
+  isActive: {
+    type: Boolean,
+    default: true,
+  },
+});
 
 const vendorSchema = new mongoose.Schema(
   {

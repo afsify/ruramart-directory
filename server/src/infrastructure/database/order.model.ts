@@ -25,7 +25,7 @@ const orderItemSchema = new mongoose.Schema(
       required: true,
     },
   },
-  { id: false, timestamps: true }
+  { timestamps: true }
 );
 
 const cancellationSchema = new mongoose.Schema(
@@ -35,7 +35,7 @@ const cancellationSchema = new mongoose.Schema(
       required: true,
     },
   },
-  { id: false, timestamps: true }
+  { timestamps: true }
 );
 
 const returnSchema = new mongoose.Schema(
@@ -50,7 +50,7 @@ const returnSchema = new mongoose.Schema(
       default: "pending",
     },
   },
-  { id: false, timestamps: true }
+  { timestamps: true }
 );
 
 const orderSchema = new mongoose.Schema(
