@@ -1,7 +1,7 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "description": "",
+  "description": "Multi vendor shopping and delivery website",
   "main": "./src/server.ts",
   "scripts": {
     "dev": "nodemon src/server.ts",
