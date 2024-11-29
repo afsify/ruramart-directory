@@ -45,7 +45,7 @@ export const sendOTP = asyncHandler(async (req, res) => {
   const mailOptions = {
     from: process.env.GMAIL_USER,
     to: email,
-    subject: "🔐 Your Account Verification OTP",
+    subject: "✅ Account Verification OTP",
     html: accountVerificationEmail(otp),
   };
   try {
@@ -104,15 +104,13 @@ export const login = asyncHandler(async (req, res) => {
       });
     });
   } else if (!userData) {
-    return res.status(404).send({ message: "User Not Found", success: false });
+    throw new AppError("User not found");
   } else if (userData.isActive === false) {
-    return res.status(403).send({ message: "User is Blocked", success: false });
+    throw new AppError("User is Blocked");
   } else {
     const isMatch = await bcrypt.compare(password, userData.password);
     if (!isMatch) {
-      return res
-        .status(401)
-        .send({ message: "Incorrect Password", success: false });
+      throw new AppError("Incorrect Password");
     }
     let token = generateToken(userData._id);
     res.status(200).send({ message: "Login Success", success: true, token });
@@ -124,15 +122,13 @@ export const login = asyncHandler(async (req, res) => {
 export const forgotPassword = asyncHandler(async (req, res) => {
   const user = await User.findOne({ email: req.body.email });
   if (!user) {
-    return res
-      .status(404)
-      .json({ message: "Email does not exist", success: false });
+    throw new AppError("Email does not exist");
   }
   const otp = generateSixDigitOTP();
   const mailOptions = {
     from: process.env.GMAIL_USER,
     to: req.body.email,
-    subject: "🔐 Password Reset OTP",
+    subject: "🔑 Password Reset OTP",
     html: passwordResetEmail(otp),
   };
   try {
@@ -143,8 +139,7 @@ export const forgotPassword = asyncHandler(async (req, res) => {
       email: req.body.email,
     });
   } catch (error) {
-    console.error("Error sending email:", error);
-    res.status(500).json({ message: "Email sending failed", success: false });
+    throw new AppError("Email sending failed");
   }
 });
 
@@ -159,7 +154,7 @@ export const checkOTP = asyncHandler(async (req, res) => {
       email: req.body.email,
     });
   } else {
-    return res.status(400).send({ message: "Incorrect OTP", success: false });
+    throw new AppError("Incorrect OTP");
   }
 });
 
@@ -177,7 +172,7 @@ export const resetPassword = asyncHandler(async (req, res) => {
 //! =============================================== User Info ===============================================
 
 export const getUser = asyncHandler(async (req, res) => {
-  const userData = await User.findById(req.userId, {
+  const userData = await User.findById(req.user._id, {
     password: 0,
     createdAt: 0,
     updatedAt: 0,
@@ -190,9 +185,7 @@ export const getUser = asyncHandler(async (req, res) => {
       status: true,
     });
   } else {
-    res
-      .status(401)
-      .json({ auth: false, success: false, message: "Session Expired" });
+    throw new AppError("Session Expired");
   }
 });
 
@@ -226,13 +219,13 @@ export const contactMessage = asyncHandler(async (req, res) => {
 //! =============================================== View About ===============================================
 
 export const getAbout = asyncHandler(async (req, res) => {
-  const admin = await Admin.findOne().select("-_id -password").limit(1);
-  if (!admin) {
-    return res.status(200).send({ message: "Admin not Found", success: false });
+  const about = await Admin.findOne().select("-_id -password").limit(1);
+  if (!about) {
+    throw new AppError("About not found");
   } else {
     return res.status(200).send({
       success: true,
-      data: admin,
+      data: about,
     });
   }
 });

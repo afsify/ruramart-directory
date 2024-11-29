@@ -1,6 +1,6 @@
 import express from "express";
 const adminRouter = express.Router();
-import { protect } from "../middleware/auth.js";
+import { authorize, protect } from "../middleware/auth.js";
 import {
   bannerStatus,
   deleteBanner,

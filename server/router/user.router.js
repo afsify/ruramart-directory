@@ -1,10 +1,7 @@
 import express from "express";
 const userRouter = express.Router();
 import { protect } from "../middleware/auth.js";
-import {
-  findUser,
-  updateProfile,
-} from "../controller/user/account.controller.js";
+import { updateProfile } from "../controller/user/account.controller.js";
 import {
   checkOTP,
   contactMessage,
@@ -46,6 +43,5 @@ userRouter.get("/get-about", getAbout);
 //? ================================================ Profile ================================================
 
 userRouter.post("/update-profile", protect, updateProfile);
-userRouter.get("/find-user", protect, findUser);
 
 export default userRouter;

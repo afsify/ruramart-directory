@@ -1,4 +1,5 @@
 import jwt from "jsonwebtoken";
+import { AppError } from "./error.js";
 import { User } from "../model/user.model.js";
 
 export const protect = async (req, res, next) => {
@@ -29,4 +30,3 @@ export const authorize = async (...roles) => {
     next();
   };
 };
-
