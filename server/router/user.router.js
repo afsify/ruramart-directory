@@ -1,6 +1,6 @@
 import express from "express";
 const userRouter = express.Router();
-import { userAuth } from "../middleware/auth.js";
+import { protect } from "../middleware/auth.js";
 import {
   findUser,
   updateProfile,
@@ -23,7 +23,7 @@ import {
 userRouter.post("/send-otp", sendOTP);
 userRouter.post("/verify-otp", verifyOTP);
 userRouter.post("/login", login);
-userRouter.get("/get-user", userAuth, getUser);
+userRouter.get("/get-user", protect, getUser);
 
 //? ============================================ Forgot Password ============================================
 
@@ -45,7 +45,7 @@ userRouter.get("/get-about", getAbout);
 
 //? ================================================ Profile ================================================
 
-userRouter.post("/update-profile", userAuth, updateProfile);
-userRouter.get("/find-user", userAuth, findUser);
+userRouter.post("/update-profile", protect, updateProfile);
+userRouter.get("/find-user", protect, findUser);
 
-export { userRouter };
+export default userRouter;

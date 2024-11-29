@@ -1,6 +1,6 @@
 import express from "express";
 const adminRouter = express.Router();
-import { adminAuth } from "../middleware/auth.js";
+import { protect } from "../middleware/auth.js";
 import {
   bannerStatus,
   deleteBanner,
@@ -22,32 +22,32 @@ import {
 //? ============================================= Authorization =============================================
 
 adminRouter.post("/signin", signIn);
-adminRouter.get("/get-admin", adminAuth, getAdmin);
+adminRouter.get("/get-admin", protect, getAdmin);
 
 //? ============================================== Dashboard ==============================================
 
-adminRouter.get("/list-dashboard", adminAuth, listDashboard);
+adminRouter.get("/list-dashboard", protect, listDashboard);
 
 //? ============================================== User Manage ==============================================
 
-adminRouter.get("/list-user", adminAuth, listUser);
-adminRouter.post("/block-user/:userId", adminAuth, blockUser);
-adminRouter.post("/unblock-user/:userId", adminAuth, unblockUser);
+adminRouter.get("/list-user", protect, listUser);
+adminRouter.post("/block-user/:userId", protect, blockUser);
+adminRouter.post("/unblock-user/:userId", protect, unblockUser);
 
 //? ============================================= Banner Manage =============================================
 
-adminRouter.get("/list-banner", adminAuth, listBanner);
-adminRouter.post("/insert-banner", adminAuth, insertBanner);
-adminRouter.post("/edit-banner/:bannerId", adminAuth, editBanner);
-adminRouter.post("/banner-status/:bannerId", adminAuth, bannerStatus);
-adminRouter.delete("/delete-banner/:bannerId", adminAuth, deleteBanner);
+adminRouter.get("/list-banner", protect, listBanner);
+adminRouter.post("/insert-banner", protect, insertBanner);
+adminRouter.post("/edit-banner/:bannerId", protect, editBanner);
+adminRouter.post("/banner-status/:bannerId", protect, bannerStatus);
+adminRouter.delete("/delete-banner/:bannerId", protect, deleteBanner);
 
 //? ================================================ Feedback ================================================
 
-adminRouter.get("/list-feedback", adminAuth, listFeedback);
+adminRouter.get("/list-feedback", protect, listFeedback);
 
 //? ================================================ Settings ================================================
 
-adminRouter.post("/update-about/:adminId", adminAuth, updateAbout);
+adminRouter.post("/update-about/:adminId", protect, updateAbout);
 
-export { adminRouter };
+export default adminRouter;

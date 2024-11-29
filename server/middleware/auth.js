@@ -1,78 +1,32 @@
 import jwt from "jsonwebtoken";
+import { User } from "../model/user.model.js";
 
-const adminAuth = (req, res, next) => {
-  try {
-    const token = req.headers.authorization?.split(" ")[1];
-    if (!token) {
-      return res.status(401).send({
-        message: "Token not Found",
-        success: false,
-        auth: false,
-      });
-    } else {
-      jwt.verify(token, process.env.JWT_SECRET, (error, decoded) => {
-        if (error) {
-          return res.status(401).send({
-            message: "Authorization Failed",
-            success: false,
-            auth: false,
-          });
-        } else if (
-          decoded.exp * 1000 > Date.now() &&
-          decoded.role === "admin"
-        ) {
-          req.adminId = decoded.id;
-          next();
-        } else {
-          return res.status(401).send({
-            message: "Authorization Failed",
-            success: false,
-            auth: false,
-          });
-        }
-      });
+export const protect = async (req, res, next) => {
+  let token;
+  if (
+    req.headers.authorization &&
+    req.headers.authorization.startsWith("Bearer")
+  ) {
+    try {
+      token = req.headers.authorization?.split(" ")[1];
+      const decoded = jwt.verify(token, process.env.JWT_SECRET);
+      req.user = await User.findById(decoded.id).select("-password");
+      next();
+    } catch (error) {
+      throw new AppError("Not Authorized", 401);
     }
-  } catch (error) {
-    res
-      .status(500)
-      .send({ message: error.message, success: false, auth: false });
+  }
+  if (!token) {
+    throw new AppError("No Token Attached to the Header", 401);
   }
 };
 
-const userAuth = (req, res, next) => {
-  try {
-    const token = req.headers.authorization?.split(" ")[1];
-    if (!token) {
-      return res.status(401).send({
-        message: "Token not Found",
-        success: false,
-        auth: false,
-      });
-    } else {
-      jwt.verify(token, process.env.JWT_SECRET, (error, decoded) => {
-        if (error) {
-          return res.status(401).send({
-            message: "Authorization Failed",
-            success: false,
-            auth: false,
-          });
-        } else if (decoded.exp * 1000 > Date.now() && decoded.role === "user") {
-          req.userId = decoded.id;
-          next();
-        } else {
-          return res.status(401).send({
-            message: "Authorization Failed",
-            success: false,
-            auth: false,
-          });
-        }
-      });
+export const authorize = async (...roles) => {
+  return (req, res, next) => {
+    if (!roles.includes(req.user.role)) {
+      throw new AppError("You don't have permissions", 403);
     }
-  } catch (error) {
-    res
-      .status(500)
-      .send({ message: error.message, success: false, auth: false });
-  }
+    next();
+  };
 };
 
-export { adminAuth, userAuth };

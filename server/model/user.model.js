@@ -39,6 +39,9 @@ const userSchema = new mongoose.Schema(
     phone: {
       type: String,
     },
+    place: {
+      type: String,
+    },
     isActive: {
       type: Boolean,
       default: true,

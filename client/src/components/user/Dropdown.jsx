@@ -45,7 +45,7 @@ function Dropdown() {
           <h3 className="text-center text-lg uppercase font-semibold">
             <span>
               {userData?.name}
-              {userData?.developer ? (
+              {userData?.seller ? (
                 <TokenRoundedIcon
                   className="ml-1 mb-1"
                   sx={{ fontSize: 16, color: "green" }}

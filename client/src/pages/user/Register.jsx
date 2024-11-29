@@ -19,6 +19,7 @@ function Register() {
       dispatch(hideLoading());
       if (response.data.success) {
         toast.success(response.data.message);
+
         navigate(userPath.registerOTP, { state: { user: response.data.user } });
       } else {
         toast.error(response.data.message);
