@@ -1,12 +1,12 @@
 const links = {
-  auth: "https://res.cloudinary.com/cloudverse/image/upload/v1695133216/CODEVERSE/auth.jpg",
-  logo: "https://res.cloudinary.com/cloudverse/image/upload/v1721893242/CODSIFY/codsify.png",
+  auth: "https://res.cloudinary.com/afsify/image/upload/v1695133216/codisify/auth.jpg",
+  logo: "https://res.cloudinary.com/afsify/image/upload/v1733133377/codisify/codisify.png",
   profile:
-    "https://res.cloudinary.com/cloudverse/image/upload/v1702630432/CODEVERSE/profile.png",
+    "https://res.cloudinary.com/afsify/image/upload/v1702630432/codisify/profile.png",
   vertical:
-    "https://res.cloudinary.com/cloudverse/image/upload/v1702631876/CODEVERSE/vertical.webp",
+    "https://res.cloudinary.com/afsify/image/upload/v1702631876/codisify/vertical.webp",
   horizontal:
-    "https://res.cloudinary.com/cloudverse/image/upload/v1703225521/CODEVERSE/horizontal.png",
+    "https://res.cloudinary.com/afsify/image/upload/v1703225521/codisify/horizontal.png",
 };
 
 export default links;
