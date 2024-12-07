@@ -7,6 +7,10 @@ const wishlistSchema = new mongoose.Schema(
       ref: "User",
       required: true,
     },
+    listName: {
+      type: String,
+      default: "Shopping List",
+    },
     products: [
       {
         type: mongoose.Types.ObjectId,
