@@ -7,7 +7,7 @@ const wishlistSchema = new mongoose.Schema(
       ref: "User",
       required: true,
     },
-    name: {
+    listName: {
       type: String,
       default: "Shopping List",
     },
