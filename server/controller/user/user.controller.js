@@ -14,6 +14,10 @@ import {
 } from "../../utils/emailTemplate.js";
 dotenv.config();
 
+//* @desc Register a new Vendor
+//* @router /api/user/verify-otp
+//* @access Public
+
 //! =============================================== Transporter ===============================================
 
 const transporter = nodemailer.createTransport({
@@ -85,7 +89,7 @@ export const verifyOTP = asyncHandler(async (req, res) => {
 //! ============================================== Verify SignIn ==============================================
 
 export const login = asyncHandler(async (req, res) => {
-  const { name, email, password, exp, image } = req.body;
+  const { name, email, password, exp } = req.body;
   const userData = await User.findOne({ email });
   if (exp && userData === null) {
     const hashPassword = await bcrypt.hash(password, 10);
@@ -93,7 +97,6 @@ export const login = asyncHandler(async (req, res) => {
       name: name,
       email: email,
       password: hashPassword,
-      image: image ? image : undefined,
     }).then(async () => {
       let userData = await User.findOne({ email: email });
       let token = generateToken(userData._id);
@@ -187,6 +190,15 @@ export const getUser = asyncHandler(async (req, res) => {
   } else {
     throw new AppError("Session Expired");
   }
+});
+
+export const listUser = asyncHandler(async (req, res) => {
+  const users = await User.find({});
+  res.status(200).json({
+    message: "Users Fetched",
+    success: true,
+    data: users,
+  });
 });
 
 //! =============================================== List Banner ===============================================

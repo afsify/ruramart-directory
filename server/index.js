@@ -6,6 +6,7 @@ import express from "express";
 import database from "./config/database.js";
 import userRouter from "./router/user.router.js";
 import adminRouter from "./router/admin.router.js";
+import vendorRouter from "./router/vendor.router.js";
 import { notFound, errorHandler } from "./middleware/error.js";
 
 dotenv.config();
@@ -21,6 +22,7 @@ app.use(express.json());
 
 app.use("/api/user", userRouter);
 app.use("/api/admin", adminRouter);
+app.use("/api/vendor", vendorRouter);
 
 app.use(notFound);
 app.use(errorHandler);

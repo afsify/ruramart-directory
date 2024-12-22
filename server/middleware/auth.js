@@ -14,18 +14,27 @@ export const protect = async (req, res, next) => {
       req.user = await User.findById(decoded.id).select("-password");
       next();
     } catch (error) {
-      throw new AppError("Not Authorized", 401);
+      res.status(401).json({
+        status: false,
+        message: "Not Authorized",
+      });
     }
   }
   if (!token) {
-    throw new AppError("No Token Attached to the Header", 401);
+    res.status(401).json({
+      status: false,
+      message: "No Token Attached to the Header",
+    });
   }
 };
 
 export const authorize = async (...roles) => {
   return (req, res, next) => {
     if (!roles.includes(req.user.role)) {
-      throw new AppError("You don't have permissions", 403);
+      res.status(403).json({
+        status: false,
+        message: "You don't have permissions",
+      });
     }
     next();
   };

@@ -58,7 +58,6 @@ function Login() {
         email: credential.email,
         password: credential.sub,
         exp: credential.exp,
-        image: credential.picture,
       };
       dispatch(showLoading());
       const loginResponse = await userLogin(values);
