@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import slugify from "slugify";
 
 const subscriptionSchema = new mongoose.Schema({
   plan: {
@@ -31,6 +32,10 @@ const vendorSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    slug: {
+      type: String,
+      unique: true,
+    },
     shopDescription: {
       type: String,
       required: true,
@@ -59,10 +64,19 @@ const vendorSchema = new mongoose.Schema(
       type: Boolean,
       default: false,
     },
+    isActive: {
+      type: Boolean,
+      default: false,
+    },
     products: [{ type: mongoose.Types.ObjectId, ref: "Product" }],
     subscription: subscriptionSchema,
   },
   { timestamps: true }
 );
+
+vendorSchema.pre("save", async function (next) {
+  this.slug = slugify(this.shopName, { lower: true });
+  next();
+});
 
 export const Vendor = mongoose.model("Vendor", vendorSchema);
