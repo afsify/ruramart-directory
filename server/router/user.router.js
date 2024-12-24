@@ -1,7 +1,7 @@
 import express from "express";
 const userRouter = express.Router();
 import { protect } from "../middleware/auth.js";
-import { updateProfile } from "../controller/user/account.controller.js";
+import { updateProfile } from "../controller/account.controller.js";
 import {
   checkOTP,
   contactMessage,
@@ -13,7 +13,7 @@ import {
   resetPassword,
   sendOTP,
   verifyOTP,
-} from "../controller/user/user.controller.js";
+} from "../controller/user.controller.js";
 
 //? ============================================= Authorization =============================================
 

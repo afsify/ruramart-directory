@@ -1,6 +1,6 @@
 import asyncHandler from "express-async-handler";
-import { AppError } from "../../middleware/error.js";
-import { Banner } from "../../model/banner.model.js";
+import { AppError } from "../middleware/error.js";
+import { Banner } from "../model/banner.model.js";
 
 //! ============================================== List Banners ==============================================
 

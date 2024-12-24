@@ -1,10 +1,10 @@
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import asyncHandler from "express-async-handler";
-import { User } from "../../model/user.model.js";
-import { Admin } from "../../model/admin.model.js";
-import { AppError } from "../../middleware/error.js";
-import { Feedback } from "../../model/feedback.model.js";
+import { User } from "../model/user.model.js";
+import { Admin } from "../model/admin.model.js";
+import { AppError } from "../middleware/error.js";
+import { Feedback } from "../model/feedback.model.js";
 
 //! ============================================== Verify Login ==============================================
 

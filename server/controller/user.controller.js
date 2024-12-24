@@ -2,16 +2,16 @@ import dotenv from "dotenv";
 import bcrypt from "bcrypt";
 import nodemailer from "nodemailer";
 import asyncHandler from "express-async-handler";
-import { User } from "../../model/user.model.js";
-import { Admin } from "../../model/admin.model.js";
-import { AppError } from "../../middleware/error.js";
-import { Banner } from "../../model/banner.model.js";
-import { Feedback } from "../../model/feedback.model.js";
-import { generateToken } from "../../utils/generateToken.js";
+import { User } from "../model/user.model.js";
+import { Admin } from "../model/admin.model.js";
+import { AppError } from "../middleware/error.js";
+import { Banner } from "../model/banner.model.js";
+import { Feedback } from "../model/feedback.model.js";
+import { generateToken } from "../utils/generateToken.js";
 import {
   passwordResetEmail,
   accountVerificationEmail,
-} from "../../utils/emailTemplate.js";
+} from "../utils/emailTemplate.js";
 dotenv.config();
 
 //* @desc Register a new Vendor

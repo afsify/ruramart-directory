@@ -7,7 +7,7 @@ import {
   editBanner,
   insertBanner,
   listBanner,
-} from "../controller/admin/banner.controller.js";
+} from "../controller/banner.controller.js";
 import {
   blockUser,
   getAdmin,
@@ -17,7 +17,7 @@ import {
   signIn,
   unblockUser,
   updateAbout,
-} from "../controller/admin/admin.controller.js";
+} from "../controller/admin.controller.js";
 
 //? ============================================= Authorization =============================================
 

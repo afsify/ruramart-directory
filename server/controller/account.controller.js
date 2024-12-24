@@ -1,6 +1,6 @@
-import { User } from "../../model/user.model.js";
+import { User } from "../model/user.model.js";
 import asyncHandler from "express-async-handler";
-import { AppError } from "../../middleware/error.js";
+import { AppError } from "../middleware/error.js";
 
 //! ============================================= Update Profile =============================================
 

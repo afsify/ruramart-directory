@@ -1,21 +1,6 @@
 import asyncHandler from "express-async-handler";
-import { Vendor } from "../../model/vendor.model.js";
-import { AppError } from "../../middleware/error.js";
-
-//! =============================================== Create Vendor ===============================================
-
-export const createVendor = asyncHandler(async (req, res) => {
-  try {
-    const newVendor = await Vendor.create(req.body);
-    res.status(201).json({
-      status: true,
-      message: "Vendor created successfully.",
-      data: newVendor,
-    });
-  } catch (error) {
-    throw new AppError(error, 400);
-  }
-});
+import { Vendor } from "../model/vendor.model.js";
+import { AppError } from "../middleware/error.js";
 
 //! =============================================== List Vendor ===============================================
 
@@ -32,9 +17,9 @@ export const listVendor = asyncHandler(async (req, res) => {
   }
 });
 
-//! =============================================== Get By Slug ===============================================
+//! =============================================== Get Vendor ===============================================
 
-export const getBySlug = asyncHandler(async (req, res) => {
+export const getVendor = asyncHandler(async (req, res) => {
   try {
     const vendor = await Vendor.findOne({ slug: req.params.slug }).populate(
       "userId",
@@ -47,6 +32,21 @@ export const getBySlug = asyncHandler(async (req, res) => {
       status: true,
       message: "Vendor retrieved successfully.",
       data: vendor,
+    });
+  } catch (error) {
+    throw new AppError(error, 400);
+  }
+});
+
+//! =============================================== Create Vendor ===============================================
+
+export const createVendor = asyncHandler(async (req, res) => {
+  try {
+    const newVendor = await Vendor.create(req.body);
+    res.status(201).json({
+      status: true,
+      message: "Vendor created successfully.",
+      data: newVendor,
     });
   } catch (error) {
     throw new AppError(error, 400);

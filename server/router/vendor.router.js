@@ -2,18 +2,18 @@ import express from "express";
 const vendorRouter = express.Router();
 import { authorize, protect } from "../middleware/auth.js";
 import {
-  createVendor,
-  getBySlug,
   listVendor,
-  toggleVendor,
+  getVendor,
+  createVendor,
   updateVendor,
-} from "../controller/vendor/vendor.controller.js";
+  toggleVendor,
+} from "../controller/vendor.controller.js";
 
 //? ============================================= Authorization =============================================
 
-vendorRouter.post("/create-vendor", createVendor);
 vendorRouter.get("/list-vendor", listVendor);
-vendorRouter.get("/get-by/:slug", getBySlug);
+vendorRouter.get("/get-vendor/:slug", getVendor);
+vendorRouter.post("/create-vendor", createVendor);
 vendorRouter.put("/update-vendor/:id", updateVendor);
 vendorRouter.put("/toggle-vendor/:id", toggleVendor);
 
