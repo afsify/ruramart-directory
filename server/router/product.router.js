@@ -9,7 +9,7 @@ import {
   toggleProduct,
 } from "../controller/product.controller.js";
 
-//? ============================================= Authorization =============================================
+//? ============================================= Product CRUD =============================================
 
 productRouter.get("/list-product", listProduct);
 productRouter.get("/get-product/:slug", getProduct);

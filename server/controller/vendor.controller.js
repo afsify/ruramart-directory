@@ -6,7 +6,7 @@ import { AppError } from "../middleware/error.js";
 
 export const listVendor = asyncHandler(async (req, res) => {
   try {
-    const vendor = await Vendor.find().populate("userId", "-password");
+    const vendor = await Vendor.find().populate("user", "-password");
     res.status(200).json({
       status: true,
       message: "Vendors retrieved successfully.",
@@ -22,7 +22,7 @@ export const listVendor = asyncHandler(async (req, res) => {
 export const getVendor = asyncHandler(async (req, res) => {
   try {
     const vendor = await Vendor.findOne({ slug: req.params.slug }).populate(
-      "userId",
+      "user",
       "-password"
     );
     if (!vendor) {

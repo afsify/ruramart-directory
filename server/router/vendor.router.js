@@ -9,7 +9,7 @@ import {
   toggleVendor,
 } from "../controller/vendor.controller.js";
 
-//? ============================================= Authorization =============================================
+//? ============================================= Vendor CRUD =============================================
 
 vendorRouter.get("/list-vendor", listVendor);
 vendorRouter.get("/get-vendor/:slug", getVendor);

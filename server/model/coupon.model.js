@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 const couponSchema = new mongoose.Schema({
-  userId: {
+  user: {
     type: mongoose.Types.ObjectId,
     ref: "User",
   },
@@ -17,15 +17,13 @@ const couponSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
-  status: {
-    type: String,
-    enum: ["active", "expired"],
-    default: "active",
-    required: true,
-  },
   expiryDate: {
     type: Date,
     required: true,
+  },
+  isActive: {
+    type: Boolean,
+    default: true,
   },
 });
 

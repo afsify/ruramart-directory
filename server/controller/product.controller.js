@@ -6,7 +6,7 @@ import { Product } from "../model/product.model.js";
 
 export const listProduct = asyncHandler(async (req, res) => {
   try {
-    const product = await Product.find();
+    const product = await Product.find().populate("vendor");
     res.status(200).json({
       status: true,
       message: "Products retrieved successfully.",
@@ -21,7 +21,9 @@ export const listProduct = asyncHandler(async (req, res) => {
 
 export const getProduct = asyncHandler(async (req, res) => {
   try {
-    const product = await Product.findOne({ slug: req.params.slug });
+    const product = await Product.findOne({ slug: req.params.slug }).populate(
+      "vendor"
+    );
     if (!product) {
       throw new AppError("Product not found with the given slug!", 404);
     }

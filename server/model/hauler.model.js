@@ -2,8 +2,11 @@ import mongoose from "mongoose";
 
 const haulerSchema = new mongoose.Schema(
   {
-    agencyName: { type: String, required: true },
-    userId: {
+    name: {
+      type: String,
+      required: true,
+    },
+    user: {
       type: mongoose.Types.ObjectId,
       ref: "User",
       required: true,

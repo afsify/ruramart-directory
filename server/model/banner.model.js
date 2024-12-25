@@ -10,10 +10,6 @@ const bannerSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    status: {
-      type: Boolean,
-      default: false,
-    },
     link: {
       type: String,
       required: true,
@@ -21,6 +17,10 @@ const bannerSchema = new mongoose.Schema(
     image: {
       type: String,
       required: true,
+    },
+    isActive: {
+      type: Boolean,
+      default: true,
     },
   },
   {

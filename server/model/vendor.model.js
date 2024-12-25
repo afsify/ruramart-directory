@@ -23,12 +23,12 @@ const subscriptionSchema = new mongoose.Schema({
 
 const vendorSchema = new mongoose.Schema(
   {
-    userId: {
+    user: {
       type: mongoose.Types.ObjectId,
       ref: "User",
       required: true,
     },
-    shopName: {
+    name: {
       type: String,
       required: true,
     },
@@ -36,15 +36,15 @@ const vendorSchema = new mongoose.Schema(
       type: String,
       unique: true,
     },
-    shopDescription: {
+    description: {
       type: String,
       required: true,
     },
-    shopImage: {
+    image: {
       type: String,
       required: true,
     },
-    shopAddress: {
+    address: {
       street: String,
       city: String,
       district: String,
@@ -75,7 +75,7 @@ const vendorSchema = new mongoose.Schema(
 );
 
 vendorSchema.pre("save", async function (next) {
-  this.slug = slugify(this.shopName, { lower: true });
+  this.slug = slugify(this.name, { lower: true });
   next();
 });
 

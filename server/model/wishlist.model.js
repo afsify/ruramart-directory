@@ -2,12 +2,12 @@ import mongoose from "mongoose";
 
 const wishlistSchema = new mongoose.Schema(
   {
-    userId: {
+    user: {
       type: mongoose.Types.ObjectId,
       ref: "User",
       required: true,
     },
-    listName: {
+    name: {
       type: String,
       default: "Shopping List",
     },

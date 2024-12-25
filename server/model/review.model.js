@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const reviewSchema = new mongoose.Schema(
   {
-    userId: {
+    user: {
       type: mongoose.Types.ObjectId,
       ref: "User",
       required: true,
@@ -25,6 +25,10 @@ const reviewSchema = new mongoose.Schema(
         type: Date,
         default: Date.now,
       },
+    },
+    isActive: {
+      type: Boolean,
+      default: false,
     },
   },
   { timestamps: true }

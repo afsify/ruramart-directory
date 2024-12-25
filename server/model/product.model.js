@@ -36,7 +36,7 @@ const productSchema = new mongoose.Schema(
       unique: true,
     },
     description: String,
-    vendorId: {
+    vendor: {
       type: mongoose.Schema.ObjectId,
       ref: "Vendor",
       required: true,
@@ -45,34 +45,34 @@ const productSchema = new mongoose.Schema(
       type: mongoose.Schema.ObjectId,
       ref: "Category",
     },
-    subCategory: {
+    subcategory: {
       type: mongoose.Schema.ObjectId,
-      ref: "Category",
+      ref: "Subcategory",
     },
     brand: {
       type: mongoose.Schema.ObjectId,
       ref: "Brand",
+      images: [String],
+      variations: [productVariationSchema],
+      ratingAverage: {
+        type: Number,
+        default: 0,
+      },
+      ratingQuantity: {
+        type: Number,
+        default: 0,
+      },
+      reviews: [
+        {
+          type: mongoose.Schema.ObjectId,
+          ref: "Review",
+        },
+      ],
     },
     isActive: {
       type: Boolean,
       default: true,
     },
-    images: [String],
-    variations: [productVariationSchema],
-    ratingAverage: {
-      type: Number,
-      default: 0,
-    },
-    ratingQuantity: {
-      type: Number,
-      default: 0,
-    },
-    reviews: [
-      {
-        type: mongoose.Schema.ObjectId,
-        ref: "Review",
-      },
-    ],
   },
   { timestamps: true }
 );

@@ -6,7 +6,7 @@ const posterSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    vendorId: {
+    vendor: {
       type: mongoose.Schema.ObjectId,
       ref: "Vendor",
       required: true,
@@ -15,10 +15,6 @@ const posterSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    status: {
-      type: Boolean,
-      default: false,
-    },
     link: {
       type: String,
       required: true,
@@ -26,6 +22,10 @@ const posterSchema = new mongoose.Schema(
     image: {
       type: String,
       required: true,
+    },
+    isActive: {
+      type: Boolean,
+      default: true,
     },
   },
   {

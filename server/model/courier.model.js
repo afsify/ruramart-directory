@@ -2,16 +2,16 @@ import mongoose from "mongoose";
 
 const courierSchema = new mongoose.Schema(
   {
-    orderId: {
+    order: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Order",
       required: true,
     },
-    haulerId: {
+    hauler: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Hauler",
     },
-    delivererId: {
+    deliverer: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Deliverer",
       required: true,
