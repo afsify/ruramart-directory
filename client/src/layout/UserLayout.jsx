@@ -6,6 +6,7 @@ import { userPath } from "../routes/routeConfig";
 import { getUser } from "../services/userService";
 import Dropdown from "../components/user/Dropdown";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import Navbar from "../components/user/Navbar";
 
 const UserLayout = ({ children, showFooter = true }) => {
   const location = useLocation();
@@ -50,6 +51,7 @@ const UserLayout = ({ children, showFooter = true }) => {
 
   return (
     <div className="min-h-screen">
+      {/* <Navbar /> */}
       <header className="py-4 px-4 box-border flex justify-center">
         <nav className="flex justify-center w-[99%] z-40 rounded-xl h-20 px-5 text-white bg-dark-purple shadow-black shadow-md fixed">
           <div className="flex w-full container justify-between items-center">

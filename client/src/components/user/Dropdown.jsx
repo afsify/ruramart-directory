@@ -89,7 +89,7 @@ function Dropdown() {
                 localStorage.removeItem("userToken");
                 localStorage.removeItem("userData");
                 setUserData(null);
-                dispatch(userActions.userLogout());
+                dispatch(userActions.logout());
                 navigate(userPath?.home);
               }}
               className="flex items-center cursor-pointer px-2 py-1 hover:bg-light-red hover:text-red-500 rounded-md text-base space-x-2"

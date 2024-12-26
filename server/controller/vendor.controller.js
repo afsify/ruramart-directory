@@ -8,8 +8,8 @@ export const listVendor = asyncHandler(async (req, res) => {
   try {
     const vendor = await Vendor.find().populate("user", "-password");
     res.status(200).json({
-      status: true,
       message: "Vendors retrieved successfully.",
+      success: true,
       data: vendor,
     });
   } catch (error) {
@@ -29,8 +29,8 @@ export const getVendor = asyncHandler(async (req, res) => {
       throw new AppError("Vendor not found with the given slug!", 404);
     }
     res.status(200).json({
-      status: true,
       message: "Vendor retrieved successfully.",
+      success: true,
       data: vendor,
     });
   } catch (error) {
@@ -44,8 +44,8 @@ export const createVendor = asyncHandler(async (req, res) => {
   try {
     const newVendor = await Vendor.create(req.body);
     res.status(201).json({
-      status: true,
       message: "Vendor created successfully.",
+      success: true,
       data: newVendor,
     });
   } catch (error) {
@@ -64,8 +64,8 @@ export const updateVendor = asyncHandler(async (req, res) => {
       throw new AppError("Vendor Not Found!", 404);
     }
     res.status(200).json({
-      status: true,
       message: "Vendor updated successfully.",
+      success: true,
       data: vendor,
     });
   } catch (error) {
@@ -85,8 +85,8 @@ export const toggleVendor = asyncHandler(async (req, res) => {
     await vendor.save();
     const action = vendor.isActive ? "activated" : "deactivated";
     res.status(200).json({
-      status: true,
       message: `Vendor ${action} successfully.`,
+      success: true,
       data: vendor,
     });
   } catch (error) {

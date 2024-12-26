@@ -2,16 +2,16 @@ import { userAxiosInstance } from "../api/axios";
 
 //? ============================================= Authorization =============================================
 
-export const userLogin = (values) => {
-  return userAxiosInstance.post("/login", values);
+export const loginUser = (values) => {
+  return userAxiosInstance.post("/login-user", values);
 };
 
 export const sendOTP = (values) => {
   return userAxiosInstance.post("/send-otp", values);
 };
 
-export const verifyOTP = (values) => {
-  return userAxiosInstance.post("/verify-otp", values);
+export const registerUser = (values) => {
+  return userAxiosInstance.post("/register-user", values);
 };
 
 export const getUser = () => {

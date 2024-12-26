@@ -7,7 +7,7 @@ import { userActions } from "../../redux/userSlice";
 import { userPath } from "../../routes/routeConfig";
 import { Link, useNavigate } from "react-router-dom";
 import { getUser } from "../../services/userService";
-import { userLogin } from "../../services/userService";
+import { loginUser } from "../../services/userService";
 import LoginCard from "../../components/common/LoginCard";
 import { showLoading, hideLoading } from "../../redux/alertSlice";
 
@@ -18,12 +18,12 @@ function Login() {
   const onFinish = async (values) => {
     try {
       dispatch(showLoading());
-      const loginResponse = await userLogin(values);
+      const loginResponse = await loginUser(values);
       dispatch(hideLoading());
       if (loginResponse.data.success) {
         if (loginResponse.data.token) {
           localStorage.setItem("userToken", loginResponse.data.token);
-          dispatch(userActions.userLogin());
+          dispatch(userActions.login());
           const userResponse = await getUser();
           const encodedUserData = btoa(
             JSON.stringify(userResponse.data.userData)
@@ -60,12 +60,12 @@ function Login() {
         exp: credential.exp,
       };
       dispatch(showLoading());
-      const loginResponse = await userLogin(values);
+      const loginResponse = await loginUser(values);
       dispatch(hideLoading());
       if (loginResponse.data.success) {
         if (loginResponse.data.token) {
           localStorage.setItem("userToken", loginResponse.data.token);
-          dispatch(userActions.userLogin());
+          dispatch(userActions.login());
           const userResponse = await getUser();
           const encodedUserData = btoa(
             JSON.stringify(userResponse.data.userData)

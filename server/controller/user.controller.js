@@ -14,10 +14,6 @@ import {
 } from "../utils/emailTemplate.js";
 dotenv.config();
 
-//* @desc Register a new Vendor
-//* @router /api/user/verify-otp
-//* @access Public
-
 //! =============================================== Transporter ===============================================
 
 const transporter = nodemailer.createTransport({
@@ -39,11 +35,10 @@ function generateSixDigitOTP() {
 //! ================================================= Send OTP =================================================
 
 export const sendOTP = asyncHandler(async (req, res) => {
-  console.log(req.body);
   const { email, name, password } = req.body;
   const user = await User.findOne({ email });
   if (user) {
-    throw new AppError("Email already exists");
+    throw new AppError("Email already exists", 400);
   }
   otp = generateSixDigitOTP();
   const mailOptions = {
@@ -65,9 +60,9 @@ export const sendOTP = asyncHandler(async (req, res) => {
   }
 });
 
-//! =============================================== Verify OTP ===============================================
+//! =============================================== Register User ===============================================
 
-export const verifyOTP = asyncHandler(async (req, res) => {
+export const registerUser = asyncHandler(async (req, res) => {
   const inputOtp = parseInt(req.body.otp);
   if (inputOtp === otp) {
     const { name, email, password } = req.body.user;
@@ -78,17 +73,18 @@ export const verifyOTP = asyncHandler(async (req, res) => {
       password: hashPassword,
     });
     await newUser.save();
-    return res
-      .status(200)
-      .send({ message: "Registration Success", success: true });
+    return res.status(200).send({
+      message: "Registration Success",
+      success: true,
+    });
   } else {
     throw new AppError("Incorrect OTP");
   }
 });
 
-//! ============================================== Verify SignIn ==============================================
+//! ============================================== Login User ==============================================
 
-export const login = asyncHandler(async (req, res) => {
+export const loginUser = asyncHandler(async (req, res) => {
   const { name, email, password, exp } = req.body;
   const userData = await User.findOne({ email });
   if (exp && userData === null) {
@@ -116,7 +112,11 @@ export const login = asyncHandler(async (req, res) => {
       throw new AppError("Incorrect Password");
     }
     let token = generateToken(userData._id);
-    res.status(200).send({ message: "Login Success", success: true, token });
+    res.status(200).send({
+      message: "Login Success",
+      success: true,
+      token,
+    });
   }
 });
 
@@ -183,22 +183,13 @@ export const getUser = asyncHandler(async (req, res) => {
   });
   if (userData) {
     res.status(200).send({
+      success: true,
       auth: true,
       userData,
-      status: true,
     });
   } else {
     throw new AppError("Session Expired");
   }
-});
-
-export const listUser = asyncHandler(async (req, res) => {
-  const users = await User.find({});
-  res.status(200).json({
-    message: "Users Fetched",
-    success: true,
-    data: users,
-  });
 });
 
 //! =============================================== List Banner ===============================================

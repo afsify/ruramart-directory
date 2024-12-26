@@ -1,5 +1,4 @@
 import jwt from "jsonwebtoken";
-import { AppError } from "./error.js";
 import { User } from "../model/user.model.js";
 
 export const protect = async (req, res, next) => {
@@ -15,25 +14,25 @@ export const protect = async (req, res, next) => {
       next();
     } catch (error) {
       res.status(401).json({
-        status: false,
         message: "Not Authorized",
+        success: false,
       });
     }
   }
   if (!token) {
     res.status(401).json({
-      status: false,
       message: "No Token Attached to the Header",
+      success: false,
     });
   }
 };
 
-export const authorize = async (...roles) => {
+export const authorize = (...roles) => {
   return (req, res, next) => {
     if (!roles.includes(req.user.role)) {
-      res.status(403).json({
-        status: false,
+      return res.status(403).json({
         message: "You don't have permissions",
+        success: false,
       });
     }
     next();

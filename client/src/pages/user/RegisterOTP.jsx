@@ -5,7 +5,7 @@ import { userPath } from "../../routes/routeConfig";
 import InputOTP from "../../components/user/InputOTP";
 import LoginCard from "../../components/common/LoginCard";
 import { useNavigate, useLocation } from "react-router-dom";
-import { sendOTP, verifyOTP } from "../../services/userService";
+import { sendOTP, registerUser } from "../../services/userService";
 import { hideLoading, showLoading } from "../../redux/alertSlice";
 
 function RegisterOTP() {
@@ -70,7 +70,7 @@ function RegisterOTP() {
         user,
       };
       dispatch(showLoading());
-      const response = await verifyOTP(values);
+      const response = await registerUser(values);
       dispatch(hideLoading());
       if (response.data.success) {
         toast.success(response.data.message);

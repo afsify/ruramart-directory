@@ -8,8 +8,8 @@ export const listWishlist = asyncHandler(async (req, res) => {
   try {
     const wishlist = await Wishlist.find();
     res.status(200).json({
-      status: true,
       message: "Wishlists retrieved successfully.",
+      success: true,
       data: wishlist,
     });
   } catch (error) {
@@ -26,8 +26,8 @@ export const getWishlist = asyncHandler(async (req, res) => {
       throw new AppError("Wishlist not found with the given slug!", 404);
     }
     res.status(200).json({
-      status: true,
       message: "Wishlist retrieved successfully.",
+      success: true,
       data: wishlist,
     });
   } catch (error) {
@@ -41,8 +41,8 @@ export const createWishlist = asyncHandler(async (req, res) => {
   try {
     const newWishlist = await Wishlist.create(req.body);
     res.status(201).json({
-      status: true,
       message: "Wishlist created successfully.",
+      success: true,
       data: newWishlist,
     });
   } catch (error) {
@@ -61,8 +61,8 @@ export const updateWishlist = asyncHandler(async (req, res) => {
       throw new AppError("Wishlist Not Found!", 404);
     }
     res.status(200).json({
-      status: true,
       message: "Wishlist updated successfully.",
+      success: true,
       data: wishlist,
     });
   } catch (error) {
@@ -82,8 +82,8 @@ export const toggleWishlist = asyncHandler(async (req, res) => {
     await wishlist.save();
     const action = wishlist.isActive ? "activated" : "deactivated";
     res.status(200).json({
-      status: true,
       message: `Wishlist ${action} successfully.`,
+      success: true,
       data: wishlist,
     });
   } catch (error) {

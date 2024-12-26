@@ -1,6 +1,6 @@
 import express from "express";
 const userRouter = express.Router();
-import { protect } from "../middleware/auth.js";
+import { authorize, protect } from "../middleware/auth.js";
 import { updateProfile } from "../controller/account.controller.js";
 import {
   checkOTP,
@@ -9,17 +9,17 @@ import {
   getAbout,
   getUser,
   listBanner,
-  login,
+  loginUser,
   resetPassword,
   sendOTP,
-  verifyOTP,
+  registerUser,
 } from "../controller/user.controller.js";
 
 //? ============================================= Authorization =============================================
 
 userRouter.post("/send-otp", sendOTP);
-userRouter.post("/verify-otp", verifyOTP);
-userRouter.post("/login", login);
+userRouter.post("/register-user", registerUser);
+userRouter.post("/login-user", loginUser);
 userRouter.get("/get-user", protect, getUser);
 
 //? ============================================ Forgot Password ============================================

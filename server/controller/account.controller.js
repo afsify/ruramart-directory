@@ -4,7 +4,7 @@ import { AppError } from "../middleware/error.js";
 
 //! ============================================= Update Profile =============================================
 
-export const updateProfile = asyncHandler(async (req, res, next) => {
+export const updateProfile = asyncHandler(async (req, res) => {
   const { name, phone, place, image } = req.body;
   const userId = req.user._id;
   const user = await User.findById(userId);
@@ -12,7 +12,7 @@ export const updateProfile = asyncHandler(async (req, res, next) => {
     throw new AppError("User not found");
   }
   user.name = name;
-  user.phone = parseInt(phone);
+  user.phone = phone;
   user.place = place;
   user.image = image;
   await user.save();
@@ -23,8 +23,8 @@ export const updateProfile = asyncHandler(async (req, res, next) => {
     __v: 0,
   });
   res.status(200).json({
+    message: "Profile Updated",
     success: true,
     userData,
-    message: "Profile Updated",
   });
 });

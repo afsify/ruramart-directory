@@ -28,14 +28,14 @@ function PrivateRoute({ role }) {
             if (isBlocked) {
               localStorage.removeItem("userToken");
               localStorage.removeItem("userData");
-              dispatch(userActions.userLogout());
+              dispatch(userActions.logout());
               navigate(userPath.login);
               toast.error("You were blocked");
               return setAuth(false);
             }
-            dispatch(userActions.userLogin());
+            dispatch(userActions.login());
           } else {
-            dispatch(userActions.userLogout());
+            dispatch(userActions.logout());
           }
           setAuth(response.data.auth);
         }

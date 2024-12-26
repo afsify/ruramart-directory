@@ -7,11 +7,8 @@ import {
   createSupport,
   updateSupport,
   deleteSupport,
-  updateSupportStatus,
-  handleSupportReturn,
-  handleSupportCancellation,
-  handleSupportReturnStatus,
   assignSupport,
+  updateSupportStatus,
 } from "../controller/support.controller.js";
 
 //? ============================================= Support CRUD =============================================

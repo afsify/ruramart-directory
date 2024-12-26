@@ -21,10 +21,18 @@ database();
 
 const app = express();
 
-app.use(cors());
 app.use(helmet());
 app.use(morgan("dev"));
 app.use(express.json());
+
+app.use(
+  cors({
+    origin: process.env.CLIENT_URL,
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  })
+);
 
 app.use("/api/user", userRouter);
 app.use("/api/admin", adminRouter);
