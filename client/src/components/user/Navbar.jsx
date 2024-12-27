@@ -2,13 +2,15 @@ import { useState } from "react";
 import { Input, Badge, Menu, Dropdown, Button } from "antd";
 import {
   SearchOutlined,
-  UserOutlined,
   HeartOutlined,
   ShoppingCartOutlined,
   MenuOutlined,
   DownOutlined,
   PhoneOutlined,
 } from "@ant-design/icons";
+import { Link } from "react-router-dom";
+import { userPath } from "../../routes/routeConfig";
+import Account from "./Account";
 
 const Navbar = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -24,27 +26,23 @@ const Navbar = () => {
   );
 
   return (
-    <div className="w-full border-b bg-white">
-      {/* Top Section */}
-      <div className="flex flex-wrap items-center justify-between p-4">
-        {/* Logo and Search */}
-        <div className="flex items-center space-x-4">
-          <img
-            src="https://placehold.co/150x50"
-            alt="Shopstic Logo"
-            className="h-10"
-          />
+    <nav className="w-full border-b z-40 fixed">
+      <div className="flex flex-wrap items-center container justify-between p-4">
+        <div className="flex items-center space-x-5">
+          <Link to={userPath.home}>
+            <h1 className="text-5xl font-signature text-main-theme">
+              Ruramart
+            </h1>
+          </Link>
           <Input
             size="large"
             placeholder="Search for items..."
             prefix={<SearchOutlined />}
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-96 max-w-full"
+            className="w-96 max-w-full mt-2"
           />
         </div>
-
-        {/* Right Options */}
         <div className="flex items-center space-x-4">
           <div className="hidden md:flex items-center space-x-2 text-gray-500">
             <HeartOutlined />
@@ -59,15 +57,11 @@ const Navbar = () => {
             </Badge>
           </div>
           <div className="flex items-center space-x-2 text-gray-500">
-            <UserOutlined />
-            <span>Account</span>
+            <Account />
           </div>
         </div>
       </div>
-
-      {/* Bottom Section */}
-      <div className="flex flex-wrap items-center justify-between px-4 py-2 bg-gray-100">
-        {/* Categories */}
+      <div className="flex flex-wrap items-center justify-between px-4 py-2">
         <Dropdown
           overlay={categoriesMenu([
             "Fashion",
@@ -85,8 +79,6 @@ const Navbar = () => {
             <DownOutlined />
           </Button>
         </Dropdown>
-
-        {/* Navigation Links */}
         <div className="hidden md:flex space-x-4">
           <a href="#" className="text-black">
             Home
@@ -114,8 +106,6 @@ const Navbar = () => {
             Beauty
           </a>
         </div>
-
-        {/* Support */}
         <div className="flex items-center space-x-2">
           <PhoneOutlined className="text-gray-500" />
           <div>
@@ -124,7 +114,7 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-    </div>
+    </nav>
   );
 };
 

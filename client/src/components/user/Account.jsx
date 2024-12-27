@@ -17,7 +17,7 @@ import {
   MessageOutlined,
 } from "@ant-design/icons";
 
-function Dropdown() {
+function Account() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [userData, setUserData] = useState(null);
@@ -161,4 +161,4 @@ DropdownItem.propTypes = {
   path: PropTypes.node.isRequired,
 };
 
-export default Dropdown;
+export default Account;

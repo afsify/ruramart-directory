@@ -14,7 +14,7 @@ function ThemeProvider({ children }) {
     <ConfigProvider
       theme={{
         token: {
-          colorPrimary: "#1677FF",
+          colorPrimary: "#35ac76",
         },
         algorithm: isDarkTheme ? theme.darkAlgorithm : theme.lightAlgorithm,
       }}
