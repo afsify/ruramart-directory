@@ -1,4 +1,5 @@
 import { userAxiosInstance } from "../api/axios";
+import bannersData from "../assets/data/banners.json";
 
 //? ============================================= Authorization =============================================
 
@@ -35,7 +36,8 @@ export const resetPassword = (values) => {
 //? =============================================== Home Page ===============================================
 
 export const listBanner = () => {
-  return userAxiosInstance.get("/list-banner");
+  // return userAxiosInstance.get("/list-banner");
+  return { data: { data: bannersData } };
 };
 
 //? ================================================ Contact ================================================

@@ -2,7 +2,8 @@ import PropTypes from "prop-types";
 import { useEffect } from "react";
 import Footer from "../components/user/Footer";
 import { getUser } from "../services/userService";
-import Navbar from "../components/user/Navbar";
+import Header from "../components/user/Header";
+import HeaderBottom from "../components/user/HeaderBottom";
 
 const UserLayout = ({ children, showFooter = true }) => {
   const logged = localStorage.getItem("userToken") !== null;
@@ -25,11 +26,10 @@ const UserLayout = ({ children, showFooter = true }) => {
   }, [logged]);
 
   return (
-    <div className="min-h-screen">
-      <header className="box-border flex justify-center">
-        <Navbar />
-      </header>
-      <main className="container mx-auto mt-20 px-2 mb-5 min-h-[85vh]">
+    <div>
+      <Header />
+      <HeaderBottom />
+      <main className="container mx-auto mb-5 min-h-[85vh]">
         {children}
       </main>
       {showFooter && <Footer />}

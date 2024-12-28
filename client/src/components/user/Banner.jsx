@@ -1,4 +1,4 @@
-import links from "../../assets/links";
+import links from "../../assets/image/links";
 import { Image as AntImage } from "antd";
 import { useState, useEffect } from "react";
 import { Carousel } from "react-responsive-carousel";
@@ -28,7 +28,7 @@ function Banner() {
   return (
     <div className="relative">
       {isLoading ? (
-        <div className="flex items-center rounded-lg justify-center w-full md:h-[84vh] h-60 bg-gray-300 animate-pulse">
+        <div className="flex items-center justify-center w-full md:h-[60vh] h-60 bg-gray-300 animate-pulse">
           <AntImage
             preview={false}
             src={links.horizontal}
@@ -51,12 +51,11 @@ function Banner() {
           className="overflow-hidden"
         >
           {banners.map((banner, index) => (
-            <div key={index} className="relative h-full md:h-[84vh]">
+            <div key={index} className="relative h-full md:h-[60vh]">
               <div
                 className="w-full h-full bg-cover bg-center relative flex flex-col justify-center items-center text-center text-white overflow-hidden"
                 style={{
                   backgroundImage: `url(${banner.image})`,
-                  borderRadius: "10px",
                 }}
               >
                 <div className="absolute inset-0 bg-black opacity-50"></div>
