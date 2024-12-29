@@ -5,6 +5,7 @@ import "intersection-observer";
 import store from "./redux/store";
 import { StrictMode } from "react";
 import { Provider } from "react-redux";
+import "slick-carousel/slick/slick.css";
 import { createRoot } from "react-dom/client";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 

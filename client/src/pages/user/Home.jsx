@@ -1,6 +1,9 @@
 import { motion } from "framer-motion";
 import Banner from "../../components/user/Banner";
 import UserLayout from "../../layout/UserLayout";
+import NewArrival from "../../components/user/home/NewArrival";
+import BestSeller from "../../components/user/home/BestSeller";
+import SpecialOffer from "../../components/user/home/SpecialOffer";
 
 function Home() {
   const fadeIn = {
@@ -17,6 +20,11 @@ function Home() {
         transition={{ duration: 0.5 }}
       >
         <Banner />
+        <div className="max-w-container mx-auto px-4">
+          <NewArrival />
+          <BestSeller />
+          <SpecialOffer />
+        </div>
       </motion.div>
     </UserLayout>
   );
