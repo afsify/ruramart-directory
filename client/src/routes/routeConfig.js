@@ -9,6 +9,7 @@
 
 export const userPath = {
   home: "/",
+  shop: "/shop",
   login: "/login",
   about: "/about",
   contact: "/contact",
