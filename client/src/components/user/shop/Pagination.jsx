@@ -1,7 +1,7 @@
 import { useState } from "react";
-import ReactPaginate from "react-paginate";
 import PropTypes from "prop-types";
 import Product from "../product/Product";
+import ReactPaginate from "react-paginate";
 
 const newArrOne =
   "https://d2v5dzhdg4zhx3.cloudfront.net/web-assets/images/storypages/primary/ProductShowcasesampleimages/JPEG/Product+Showcase-1.jpg";

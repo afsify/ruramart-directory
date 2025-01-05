@@ -1,7 +1,7 @@
 import Brand from "./Brand";
-import Category from "./Category";
 import Color from "./Color";
 import Price from "./Price";
+import Category from "./Category";
 
 const ShopSideNav = () => {
   return (

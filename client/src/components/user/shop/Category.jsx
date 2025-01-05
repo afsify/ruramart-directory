@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { ImPlus } from "react-icons/im";
 import NavTitle from "./NavTitle";
+import { ImPlus } from "react-icons/im";
 
 const Category = () => {
   const [showSubCatOne, setShowSubCatOne] = useState(false);

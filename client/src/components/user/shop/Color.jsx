@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
 import NavTitle from "./NavTitle";
+import { motion } from "framer-motion";
 
 const Color = () => {
   const [showColors, setShowColors] = useState(true);
