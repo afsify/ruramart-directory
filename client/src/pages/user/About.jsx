@@ -76,7 +76,7 @@ const About = () => {
           <motion.div className="text-center mt-8" variants={itemVariants}>
             <Link to="/shop">
               <motion.button className="px-6 py-3 bg-primeColor text-white text-lg font-medium hover:bg-black transition duration-300">
-                Explore Shops
+                Explore Shop
               </motion.button>
             </Link>
           </motion.div>
