@@ -44,11 +44,6 @@ const Header = () => {
       title: "Contact",
       link: "/contact",
     },
-    {
-      _id: 1005,
-      title: "Journal",
-      link: "/journal",
-    },
   ];
 
   return (
