@@ -1,15 +1,26 @@
 import PropTypes from "prop-types";
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
 import { HiOutlineChevronRight } from "react-icons/hi";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Breadcrumbs = ({ prevLocation, title }) => {
   const location = useLocation();
+  const navigate = useNavigate();
   const [locationPath, setLocationPath] = useState("");
 
   useEffect(() => {
     setLocationPath(location.pathname.split("/")[1]);
   }, [location]);
+
+  const handleNavigate = () => {
+    if (prevLocation) {
+      navigate(
+        prevLocation.toLowerCase() === "home" ? "/" : `/${prevLocation}`
+      );
+    } else {
+      navigate("/");
+    }
+  };
 
   return (
     <div className="w-full py-10 xl:py-10 flex flex-col gap-3">
@@ -17,7 +28,14 @@ const Breadcrumbs = ({ prevLocation, title }) => {
         {title}
       </h1>
       <p className="text-sm font-normal text-lightText capitalize flex items-center">
-        <span> {prevLocation === "" ? "Home" : prevLocation}</span>
+        <span
+          className={`cursor-pointer ${
+            prevLocation ? "text-primeColor hover:underline" : "text-lightText"
+          }`}
+          onClick={handleNavigate}
+        >
+          {prevLocation === "" ? "Home" : prevLocation}
+        </span>
         <span className="px-1">
           <HiOutlineChevronRight />
         </span>
