@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import links from "../../assets/image/links";
+import UserLayout from "../../layout/UserLayout";
 import ItemCard from "../../components/user/ItemCard";
 import Breadcrumbs from "../../components/user/shop/Breadcrumbs";
-import UserLayout from "../../layout/UserLayout";
 
 const Cart = () => {
   const products = [];
