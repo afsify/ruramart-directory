@@ -1,7 +1,7 @@
-import ItemCard from "./ItemCard";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import links from "../../assets/image/links";
+import ItemCard from "../../components/user/ItemCard";
 import Breadcrumbs from "../../components/user/shop/Breadcrumbs";
 
 const Cart = () => {
