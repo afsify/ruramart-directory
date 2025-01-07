@@ -1,4 +1,4 @@
-  export const adminPath = {
+export const adminPath = {
   signin: "signin",
   feedback: "feedback",
   settings: "settings",
@@ -10,6 +10,7 @@
 export const userPath = {
   home: "/",
   shop: "/shop",
+  cart: "/cart",
   login: "/login",
   about: "/about",
   contact: "/contact",

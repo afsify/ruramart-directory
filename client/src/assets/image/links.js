@@ -7,6 +7,8 @@ const links = {
     "https://res.cloudinary.com/afsify/image/upload/v1702631876/codisify/vertical.webp",
   horizontal:
     "https://res.cloudinary.com/afsify/image/upload/v1703225521/codisify/horizontal.png",
+  emptyCart:
+    "https://res.cloudinary.com/afsify/image/upload/v1736266599/ruramart/emptycart.png",
 };
 
 export default links;

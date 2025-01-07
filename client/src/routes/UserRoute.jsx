@@ -8,6 +8,7 @@ import ServerError from "../pages/error/ServerError";
 
 const Home = lazy(() => import("../pages/user/Home"));
 const Shop = lazy(() => import("../pages/user/Shop"));
+const Cart = lazy(() => import("../pages/user/Cart"));
 const Login = lazy(() => import("../pages/user/Login"));
 const About = lazy(() => import("../pages/user/About"));
 const Contact = lazy(() => import("../pages/user/Contact"));
@@ -33,6 +34,7 @@ function UserRoute() {
       <Route path="error" element={<ServerError />} />
       <Route path={userPath.home} element={<Home />} />
       <Route path={userPath.shop} element={<Shop />} />
+      <Route path={userPath.cart} element={<Cart />} />
       <Route path={userPath.about} element={<About />} />
       <Route path={userPath.contact} element={<Contact />} />
       <Route element={<PrivateRoute role={"user"} route={userPath.home} />}>
