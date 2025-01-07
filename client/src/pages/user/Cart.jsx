@@ -27,11 +27,9 @@ const Cart = () => {
               </div>
             ))}
           </div>
-
           <button className="py-2 px-10 bg-red-500 text-white font-semibold uppercase mb-4 hover:bg-red-700 duration-300">
             Reset cart
           </button>
-
           <div className="flex flex-col mdl:flex-row justify-between border py-4 px-4 items-center gap-2 mdl:gap-0">
             <div className="flex items-center gap-4">
               <input
