@@ -8,6 +8,7 @@ const ProductDetail = () => {
   const location = useLocation();
   const [prevLocation, setPrevLocation] = useState("");
   const [productInfo, setProductInfo] = useState([]);
+  
 
   useEffect(() => {
     setProductInfo(location.state.item);
