@@ -1,15 +1,14 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import ProductInfo from "../../components/pageProps/productDetails/ProductInfo";
-import ProductsOnSale from "../../components/pageProps/productDetails/ProductsOnSale";
 import Breadcrumbs from "../../components/user/shop/Breadcrumbs";
+import ProductInfo from "../../components/user/product/ProductInfo";
+import ProductsOnSale from "../../components/user/product/ProductsOnSale";
 
 const ProductDetail = () => {
   const location = useLocation();
   const [prevLocation, setPrevLocation] = useState("");
   const [productInfo, setProductInfo] = useState([]);
   
-
   useEffect(() => {
     setProductInfo(location.state.item);
     setPrevLocation(location.pathname);
