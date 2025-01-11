@@ -13,6 +13,7 @@ export const userPath = {
   cart: "/cart",
   login: "/login",
   about: "/about",
+  signin: "/signin",
   contact: "/contact",
   profile: "/profile",
   register: "/register",
