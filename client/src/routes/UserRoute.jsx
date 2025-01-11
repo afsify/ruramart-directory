@@ -12,6 +12,7 @@ const Cart = lazy(() => import("../pages/user/Cart"));
 const Login = lazy(() => import("../pages/user/Login"));
 const About = lazy(() => import("../pages/user/About"));
 const SignIn = lazy(() => import("../pages/user/SignIn"));
+const SignUp = lazy(() => import("../pages/user/SignUp"));
 const Contact = lazy(() => import("../pages/user/Contact"));
 const Profile = lazy(() => import("../pages/user/Profile"));
 const Register = lazy(() => import("../pages/user/Register"));
@@ -26,6 +27,7 @@ function UserRoute() {
       <Route element={<PublicRoute role={"user"} route={userPath.home} />}>
         <Route path={userPath.login} element={<Login />} />
         <Route path={userPath.signin} element={<SignIn />} />
+        <Route path={userPath.signup} element={<SignUp />} />
         <Route path={userPath.resetOTP} element={<ResetOTP />} />
         <Route path={userPath.register} element={<Register />} />
         <Route path={userPath.registerOTP} element={<RegisterOTP />} />
