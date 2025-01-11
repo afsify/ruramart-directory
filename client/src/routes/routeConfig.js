@@ -14,6 +14,7 @@ export const userPath = {
   login: "/login",
   about: "/about",
   signin: "/signin",
+  signup: "/signup",
   contact: "/contact",
   profile: "/profile",
   register: "/register",
