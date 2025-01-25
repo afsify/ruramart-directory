@@ -33,7 +33,7 @@ const Footer = () => {
           <div className="flex flex-col gap-6">
             <p className="text-base w-full xl:w-[80%]">
               Ruramart Directory is an e-commerce platform connecting rural
-              shops with customers. Empowering shops with an online presence and
+              shops with customers with delivery support. Empowering shops with an online presence and
               simplifying shopping for users.
             </p>
             <ul className="flex items-center gap-2">
