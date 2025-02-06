@@ -32,7 +32,7 @@ const Footer = () => {
           <FooterListTitle title=" More about Ruramart Directory" />
           <div className="flex flex-col gap-6">
             <p className="text-base w-full xl:w-[80%]">
-              Ruramart Directory is an multi vendor e-commerce platform connecting rural
+              Ruramart Directory is an multi vendor e commerce platform connecting rural
               shops with customers with delivery support. Empowering shops with an online presence and
               simplifying shopping for users.
             </p>
