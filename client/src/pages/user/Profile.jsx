@@ -1,7 +1,6 @@
 import { useState } from "react";
 import toast from "react-hot-toast";
 import { motion } from "framer-motion";
-import links from "../../assets/links";
 import { Image } from "cloudinary-react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -14,6 +13,7 @@ import { Form, Input, Button, Upload, Card } from "antd";
 import { updateProfile } from "../../services/userService";
 import TokenRoundedIcon from "@mui/icons-material/TokenRounded";
 import { hideLoading, showLoading } from "../../redux/alertSlice";
+import links from "../../assets/image/links";
 
 function Profile() {
   const dispatch = useDispatch();

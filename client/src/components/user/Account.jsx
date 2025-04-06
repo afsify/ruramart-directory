@@ -1,5 +1,4 @@
 import PropTypes from "prop-types";
-import links from "../../assets/links";
 import Switcher from "../common/Switcher";
 import { Dropdown as AntDropdown } from "antd";
 import { userPath } from "../../routes/routeConfig";
@@ -16,6 +15,7 @@ import {
   LogoutOutlined,
   MessageOutlined,
 } from "@ant-design/icons";
+import links from "../../assets/image/links";
 
 function Account() {
   const navigate = useNavigate();
