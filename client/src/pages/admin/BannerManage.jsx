@@ -7,7 +7,7 @@ import useDelete from "../../hooks/useDelete";
 import Title from "../../components/admin/Title";
 import { Button, Empty, Switch, Table, Input } from "antd";
 import BannerForm from "../../components/admin/BannerForm";
-import AdminLayout from "../../components/layout/AdminLayout";
+import AdminLayout from "../../layout/AdminLayout";
 import DeleteConfirm from "../../components/admin/DeleteConfirm";
 import {
   EditOutlined,

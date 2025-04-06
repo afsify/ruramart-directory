@@ -2,7 +2,7 @@ import { useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 import Title from "../../components/admin/Title";
 import imageLinks from "../../assets/images/imageLinks";
-import AdminLayout from "../../components/layout/AdminLayout";
+import AdminLayout from "../../layout/AdminLayout";
 import { Row, Col, Card, Statistic, Table } from "antd";
 import { listDashboard } from "../../api/services/adminService";
 import { hideLoading, showLoading } from "../../utils/alertSlice";

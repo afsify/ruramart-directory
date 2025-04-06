@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import Title from "../../components/admin/Title";
 import { cloudUpload } from "../../api/cloudinary";
 import imageLinks from "../../assets/images/imageLinks";
-import AdminLayout from "../../components/layout/AdminLayout";
+import AdminLayout from "../../";
 import { hideLoading, showLoading } from "../../utils/alertSlice";
 import { Form, Input, Button, Select, Upload, Collapse } from "antd";
 import { CameraOutlined, PlusCircleOutlined } from "@ant-design/icons";
