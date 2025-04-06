@@ -3,7 +3,7 @@ import useFetch from "../../hooks/useFetch";
 import Title from "../../components/admin/Title";
 import { adminPath } from "../../routes/routeConfig";
 import AdminLayout from "../../layout/AdminLayout";
-import { listFeedback } from "../../api/services/adminService";
+import { listFeedback } from "../../services/adminService";
 import { VideoCameraOutlined } from "@ant-design/icons";
 
 function Feedback() {

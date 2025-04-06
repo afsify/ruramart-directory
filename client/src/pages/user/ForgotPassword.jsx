@@ -3,9 +3,9 @@ import { useDispatch } from "react-redux";
 import { Button, Form, Input } from "antd";
 import { userPath } from "../../routes/routeConfig";
 import { Link, useNavigate } from "react-router-dom";
-import AuthCard from "../../components/auth/AuthCard";
-import { forgotPassword } from "../../api/services/userService";
-import { showLoading, hideLoading } from "../../utils/alertSlice";
+import LoginCard from "../../components/common/LoginCard";
+import { forgotPassword } from "../../services/userService";
+import { hideLoading, showLoading } from "../../redux/alertSlice";
 
 function ForgotPassword() {
   const navigate = useNavigate();
@@ -30,7 +30,7 @@ function ForgotPassword() {
   };
 
   return (
-    <AuthCard>
+    <LoginCard>
       <h2 className="font-bold text-3xl text-dark-purple">Forgot Password</h2>
       <p className="text-sm mt-3 text-dark-purple">
         Enter email to reset your password
@@ -78,7 +78,7 @@ function ForgotPassword() {
           Register
         </Link>
       </div>
-    </AuthCard>
+    </LoginCard>
   );
 }
 

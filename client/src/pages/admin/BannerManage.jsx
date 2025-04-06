@@ -6,7 +6,6 @@ import useToggle from "../../hooks/useToggle";
 import useDelete from "../../hooks/useDelete";
 import Title from "../../components/admin/Title";
 import { Button, Empty, Switch, Table, Input } from "antd";
-import BannerForm from "../../components/admin/BannerForm";
 import AdminLayout from "../../layout/AdminLayout";
 import DeleteConfirm from "../../components/admin/DeleteConfirm";
 import {
@@ -22,7 +21,8 @@ import {
   bannerStatus,
   insertBanner,
   deleteBanner,
-} from "../../api/services/adminService";
+} from "../../services/adminService";
+import BannerForm from "../../components/admin/BannerForm";
 
 function BannerManage() {
   const [size] = useState("large");

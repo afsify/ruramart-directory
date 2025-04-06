@@ -1,17 +1,17 @@
 import { useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 import Title from "../../components/admin/Title";
-import imageLinks from "../../assets/images/imageLinks";
 import AdminLayout from "../../layout/AdminLayout";
 import { Row, Col, Card, Statistic, Table } from "antd";
-import { listDashboard } from "../../api/services/adminService";
-import { hideLoading, showLoading } from "../../utils/alertSlice";
+import { listDashboard } from "../../services/adminService";
 import {
   FundOutlined,
   UserOutlined,
   BarChartOutlined,
   ShoppingCartOutlined,
 } from "@ant-design/icons";
+import { hideLoading, showLoading } from "../../redux/alertSlice";
+import links from "../../assets/image/links";
 
 function Dashboard() {
   const dispatch = useDispatch();
@@ -58,7 +58,7 @@ function Dashboard() {
               </div>
             ) : (
               <div className="overflow-hidden rounded-full w-9 h-9 mx-auto shadow-sm shadow-black ">
-                <img src={imageLinks.profile} alt="Default User" />
+                <img src={links.profile} alt="Default User" />
               </div>
             )}
           </div>

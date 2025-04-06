@@ -4,12 +4,12 @@ import { useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
 import Title from "../../components/admin/Title";
 import { cloudUpload } from "../../api/cloudinary";
-import imageLinks from "../../assets/images/imageLinks";
-import AdminLayout from "../../";
-import { hideLoading, showLoading } from "../../utils/alertSlice";
 import { Form, Input, Button, Select, Upload, Collapse } from "antd";
 import { CameraOutlined, PlusCircleOutlined } from "@ant-design/icons";
-import { getAdmin, updateAbout } from "../../api/services/adminService";
+import { getAdmin, updateAbout } from "../../services/adminService";
+import { hideLoading, showLoading } from "../../redux/alertSlice";
+import links from "../../assets/image/links";
+import AdminLayout from "../../layout/AdminLayout";
 
 const { Option } = Select;
 const { Panel } = Collapse;
@@ -21,7 +21,7 @@ function Settings() {
   const [adminData, setAdminData] = useState({});
   const [uploading, setUploading] = useState(false);
   const [resume, setResume] = useState(adminData?.resume || null);
-  const [image, setImage] = useState(adminData?.image || imageLinks.profile);
+  const [image, setImage] = useState(adminData?.image || links.profile);
 
   useEffect(() => {
     const fetchAdmin = async () => {
@@ -174,7 +174,7 @@ function Settings() {
                       <Image
                         className="object-contain w-full h-full transition-opacity duration-300 ease-in-out group-hover:opacity-50"
                         cloudName={import.meta.env.VITE_CLOUD_NAME}
-                        publicId={resume || imageLinks.vertical}
+                        publicId={resume || links.vertical}
                         alt="Resume"
                       />
                     )}
