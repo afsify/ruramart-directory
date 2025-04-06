@@ -1,5 +1,4 @@
 import toast from "react-hot-toast";
-import links from "../../assets/links";
 import { Fragment, useState } from "react";
 import useFetch from "../../hooks/useFetch";
 import Title from "../../components/admin/Title";
@@ -17,6 +16,7 @@ import {
   EyeInvisibleOutlined,
   ExclamationCircleFilled,
 } from "@ant-design/icons";
+import links from "../../assets/image/links";
 
 const { confirm } = Modal;
 
