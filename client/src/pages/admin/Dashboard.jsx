@@ -17,7 +17,6 @@ function Dashboard() {
   const dispatch = useDispatch();
   const [dashboard, setDashboard] = useState({});
 
-  
   useEffect(() => {
     const fetchDashboard = async () => {
       try {
