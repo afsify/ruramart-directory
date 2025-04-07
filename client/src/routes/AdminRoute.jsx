@@ -40,6 +40,7 @@ function AdminRoute() {
   );
 }
 
+
 export default function AdminRouteWithSuspense() {
   return (
     <Suspense
